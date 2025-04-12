@@ -8,7 +8,7 @@ namespace product_management.Controllers
 {
    
         // GET: Product
-        public class ProductsController : Controller
+        public class ProductController : Controller
         {
             private static List<Product> products = new List<Product>
         {
@@ -16,7 +16,8 @@ namespace product_management.Controllers
             new Product { Id = 2, Name = "Phone", Price = 500 }
         };
 
-            public ActionResult Index()
+         
+            public ActionResult ProductList()
             {
                 return View(products);
             }
@@ -57,7 +58,8 @@ namespace product_management.Controllers
                 var product = products.FirstOrDefault(p => p.Id == id);
                 if (product != null)
                     products.Remove(product);
-                return RedirectToAction("Index");
+            TempData["SuccessMessage"] = "Product deleted successfully!";
+            return RedirectToAction("ProductList");
             }
         }
 

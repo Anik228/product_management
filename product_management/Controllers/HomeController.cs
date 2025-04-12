@@ -15,7 +15,8 @@ namespace product_management.Controllers
 
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "Products");  
+            //return RedirectToAction("Index", "Products");  
+            return View();
         }
 
 
